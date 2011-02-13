@@ -1,0 +1,270 @@
+\documentclass[a4paper, landscape, 10pt]{article}
+\usepackage[frenchb]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage[usenames]{color}
+\usepackage{hyperref}
+\hypersetup{%
+  a4paper = true,
+  pdfstartview = FitH,
+  colorlinks = true,
+  linkcolor = black,
+  citecolor = black,
+  urlcolor = black, % blue,
+  bookmarksopen = true,
+  bookmarksopenlevel = 2,
+  bookmarks = true
+}
+
+\urlstyle{sf}
+\thispagestyle{empty}
+\geometry{hmargin=0.8cm, vmargin=0.7cm}
+% \renewcommand{\columnseprule}{0.4pt}
+\newcommand{\puredata}{Pure Data\xspace}
+\newcommand{\email}[1]{\href{mailto:#1}{\textsf{#1}}}
+\newcommand{\refcardtitle}[1]{
+  \begin{center}
+    \textbf{\small{#1}} %\\
+  \end{center}
+}
+
+
+\begin{document}
+\begin{multicols}{3}
+
+  \begin{center}
+    \Large{\textbf{Carte de référence de \puredata}} \\
+    \small{Karim \textsc{Barkati} -- \today} 
+  \end{center}
+
+  \footnotesize
+
+  \refcardtitle{Modes}
+  \begin{tabularx}{9.1cm}{X}
+    \texttt{ctl-e} (ou \texttt{cmd-e}) alterne entre le mode \emph{jeu} (performance) et le mode \emph{édition} (programmation); cela modifie l'action des clics de la souris sur le patch.% (performance vs programming). %Use \emph{run} mode for performance, \emph{edit} mode to change the patch.
+  \end{tabularx}
+  \refcardtitle{Colle}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    % \multicolumn{2}{c}{Glue} \\
+    bang & retourne un message \emph{bang} \\
+    float & stocke et rappelle un nombre \\
+    symbol & stocke et rappelle un symbole \\
+    int & stocke et rappelle un entier \\
+    send & envoie un message à un objet nommé \\
+    receive & reçoit les messages envoyés par \texttt{send} \\
+    select & compare des nombres et/ou des symboles \\
+    route & oriente les messages selon le premier élément \\
+    pack & combine plusieurs atomes en un seul message \\
+    unpack & décompose un message en atomes séparés \\
+    trigger & déclenche en séquence et convertit des messages \\
+    spigot & (robinet) ouvre et ferme le passage de messages \\
+    moses & (moïse) sépare un flux de nombres en deux sorties \\
+    until & mécanisme de bouclage \\
+    print & imprime des messages sur la console \\
+    makefilename & formate un symbole comportant une variable \\
+    change & filtre les répétitions dans un flux de nombres \\
+    swap & permute deux nombres \\
+    value & valeur numérique partagée (variable globale) \\
+  \end{tabularx}
+
+
+  \refcardtitle{Temps}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    delay & envoie un message après un délai \\
+    metro & envoie un message périodiquement \\
+    line & envoie une suite linéraire de nombres \\
+    timer & mesure des intervalles temporels \\
+    cputime & mesure le temps CPU \\
+    realtime & mesure le temps par le système d'exploitation \\
+    pipe & ligne à retard (extensible) pour les messages \\
+  \end{tabularx}
+
+  \refcardtitle{Maths}
+  \begin{tabularx}{9cm}{>{\tt}X X}
+    + - * / pow  & arithmétique \\
+    == != > < >= <= & tests de comparaison \\
+    \& \&\& | || \% & opérations logiques ou bit-à-bit \\
+    mtof ftom powtodb rmstodb dbtopow dbtorms & convertions acoustiques \\
+    mod div sin cos tan atan atan2 sqrt log exp abs & maths supérieures \\
+    random expr & maths inférieures \\ 
+    max min & le plus grand ou le plus petit \\
+    clip & contraint un nombre à rester dans un intervalle borné \\
+  \end{tabularx}
+
+  % \columnbreak
+
+  \refcardtitle{Midi}
+  \begin{tabularx}{9cm}{>{\tt}X l}
+    notein ctlin pgmin bendin touchin polytouchin midiin sysexin & entrées MIDI \\
+    noteout ctlout pgmout bendout touchout polytouchout midiout & sorties MIDI \\
+  \end{tabularx}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    % makenote & schedule a delayed "note off" message corresponding to a note-on \\ 
+    makenote & envoie les \emph{note-on} et fabrique les \emph{note-off} à retarder \\
+    % stripnote & strip "note off" messages \\
+    stripnote & supprime les messages \emph{note-off} de l'entrée \\
+  \end{tabularx}
+
+  \columnbreak
+  \refcardtitle{Tables}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    tabread & lit un nombre dans une table \\
+    % tabread4 & read a number from a table, with 4 point interpolation \\
+    tabread4 & lit dans une table avec une interpolation à 4 points \\
+    tabwrite & écrit un nombre dans une table \\
+    soundfiler & lit et écrit des tables depuis/vers des fichiers audio \\
+  \end{tabularx}
+
+
+  \refcardtitle{Divers}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    loadbang & émet un \emph{bang} au démarrage \\
+    serial & contrôleur série, pour NT seulement \\
+    netsend & envoie des messages sur internet \\
+    netreceive & reçoit les messages de \texttt{netsend} \\
+    qlist & séquenceur de messages depuis un fichier texte \\
+    textfile & convertit des fichiers en messages \\
+    openpanel & fenêtre \og Ouvrir\fg \\
+    savepanel & fenêtre \og Enregistrer sous...\fg \\
+    bag & ensemble de nombres \\
+    poly & allocation polyphonique de voies \\
+    key, keyup & valeurs numériques des touches du clavier \\
+    keyname & nom symbolique des touches du clavier \\
+  \end{tabularx}
+
+  \refcardtitle{Maths audio}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    +\~\ -\~\ *\~\ /\~\ & arithmétique sur les signaux audio \\
+    max\~\ min\~\ & maximum et minimum de 2 entrées audio \\
+    clip\~ & contraint un signal entre deux bornes \\
+    q8\_rsqrt\~\ & racine carrée inverse rapide (attention 8 bits!) \\
+    q8\_sqrt\~\ & racine carrée rapide (attention 8 bits!) \\
+    wrap\~\ & reste modulo 1 (partie décimale pour les positifs) \\
+    fft\~\ & transformée de Fourier discrète complexe \\
+    ifft\~\ & transformée de Fourier discrète inverse complexe \\
+    rfft\~\ & transformée de Fourier discrète réelle \\
+    rifft\~\ & transformée de Fourier discrète inverse réelle \\
+    framp\~ & estimation de la fréquence et de l'amplitude FFT \\
+  \end{tabularx}
+  \begin{tabularx}{9cm}{>{\tt}X l}
+    mtof\~\ ftom\~\ rmstodb\~\ dbtorms\~\ rmstopow\~\ powtorms\~ & conversions acoustiques \\
+  \end{tabularx}
+
+  \refcardtitle{Colle audio}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    dac\~\ & sortie audio \\
+    adc\~\ & entrée audio \\ 
+    sig\~\ & convertit les nombres en signal audio \\ 
+    line\~\ & génère des rampes audio \\ 
+    vline\~\ & génère des rampes audio haute-précision \\ 
+    threshold\~\ & détecte le franchissement d'un seuil par un signal \\
+    snapshot\~\ & échantillonne un signal (le convertit en nombre) \\
+    vsnapshot\~\ & échantillonne un signal en haute-précision \\
+    bang\~\ & envoie un message \emph{bang} après chaque block DSP \\
+    samplerate\~\ & récupère le taux d'échantillonnage \\
+    send\~\ & connexions audio à distance \og one-to-many\fg \\
+    receive\~\ & reçoit le signal du \texttt{send\~} du même nom \\
+    throw\~\ & envoie à distance dans un bus additionneur \\
+    catch\~\ & définit et lit dans un bus additionneur \\
+    block\~\ & spécifie la taille de bloc et le chevauchement \\
+    switch\~\ & démarre et stoppe le calcul DSP \\
+    readsf\~\ & lit un fichier audio depuis le disque dur \\
+    writesf\~\ & enregistre un fichier audio sur le disque dur \\
+  \end{tabularx}
+
+  \medskip{} 
+  \noindent{}
+  \begin{tabularx}{9cm}{X}
+%    \tiny{Copyright \copyright{ 2010} Karim \textsc{Barkati} <\email{karim.barkati@gmail.com}>, under the GNU Free Documentation License: permission is granted to make and distribute copies of this card provided the copyright notice and this permission notice are preserved on all copies.}
+    \tiny{Copyright \copyright{ 2010} Karim \textsc{Barkati} <\email{karim.barkati@gmail.com}>, Permission est accordée de copier, distribuer et/ou modifier ce document selon les termes de la Licence de Documentation Libre GNU GFDL version 1.3 ou toute version ultérieure publiée par la Free Software Foundation; sans Sections Invariables; sans Textes de Première de Couverture, et sans Textes de Quatrième de Couverture.}
+  \end{tabularx}
+  \footnotesize
+
+  \columnbreak
+  \refcardtitle{Oscillateurs et tables audio}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    phasor\~\ & générateur d'ondes en dents de scie \\
+    cos\~\ & cosinus \\
+    osc\~\ & oscillateur cosinusoïdal \\
+    tabwrite\~\ & écrit dans une table \\
+    tabplay\~\ & rejoue une table (sans transposition) \\
+    tabread\~\ & lit une table (sans interpolation) \\
+    tabread4\~\ & lit une table avec interpolation à 4 points \\
+    tabosc4\~\ & oscillateur de table d'onde avec interpolation \\ 
+    tabsend\~\ & écrit continuement un bloc dans une table \\
+    tabreceive\~\ & lit continuement un bloc dans une table \\
+  \end{tabularx}
+
+  \refcardtitle{Filtres audio}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    vcf\~\ & filtre passe-bande contrôlé par voltage \\
+    noise\~\ &  générateur de bruit blanc \\
+    env\~\ & suiveur d'enveloppe (amplitude RMS en dB) \\
+    hip\~\ &  filtre passe-haut \\
+    lop\~\ &  filtre passe-bas \\ 
+    bp\~\ &  filtre passe-bande \\
+    biquad\~\ & filtre brut (2 pôles et 2 zéros) \\ 
+    samphold\~\ & échantillone la valeur d'un signal et la maintient \\
+    print\~\ & affiche un ou plusieurs "blocs" \\
+    rpole\~\ & filtre brut 1-pôle réel \\
+    rzero\~\ & filtre brut 1-zéro réel \\
+    rzero\_rev\~\ & filtre brut 1-zéro réel inversé en temps \\
+  \end{tabularx}
+  \texttt{cpole\~\, czero\~\, czero\_rev}\ \ \ \ idem en complexes 
+  % \begin{tabularx}{9cm}{>{\tt}X l}
+  % %   cpole\~\, czero\~\, czero\_rev & corresponding complex-valued filters \\
+  %   cpole\~\, czero\~\, czero\_rev & corresponding complex filters \\
+  % \end{tabularx}
+
+  \refcardtitle{Délai audio}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    delwrite\~\ & écrit dans une ligne à retard \\
+    delread\~\ & lit une ligne à retard \\
+    vd\~\ & lit une ligne à retard avec un délai variable \\
+  \end{tabularx}
+
+  \refcardtitle{Sous-patchs}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    pd & définit un sous-patch \\
+    table & tableau de nombres dans un sous-patch \\
+    inlet & ajoute une entrée à un sous-patch \\
+    outlet & ajoute une sortie à un sous-patch \\
+    inlet\~\, outlet\~\ & versions audio de \texttt{inlet} et \texttt{outlet} \\
+  \end{tabularx}
+
+  \refcardtitle{Modèles de données}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    struct & définit une structure de données \\
+    drawcurve, filledcurve & dessine une courbe \\
+    drawpolygon, filledpolygon & dessine un polygone \\
+    plot & trace le champ d'un tableau \\
+    drawnumber & affiche une valeur numérique \\
+  \end{tabularx}
+
+  \refcardtitle{Accès aux données}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    pointer & pointe sur un objet appartenant à un modèle \\
+    get & récupère des champs numériques \\
+    set & modifie des champs numériques \\
+    element & récupère un élément de tableau \\
+    getsize & récupère la taille d'un tableau \\
+    setsize & modifie la taille d'un tableau \\
+    append & ajoute un élément à une liste \\
+    % sublist & get a pointer into a list which is an element of another scalar \\
+    sublist & récupère une liste depuis le champ d'un scalaire \\
+%    scalar & draw a scalar on parent \\ % obsolete
+  \end{tabularx}
+
+
+
+\end{multicols}
+
+\end{document}

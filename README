@@ -1,0 +1,12 @@
+PURE DATA REFCARDS
+One-sided LaTeX layout for Pure Data Refcards.
+2010/12
+
+It uses 'multicol' and 'tabularx' LaTeX packages.
+At start, there's one in English and one in French.
+
+Feel free to add translations or libraries!
+
+- Karim Barkati
+http://karim.barkati.online.fr
+
