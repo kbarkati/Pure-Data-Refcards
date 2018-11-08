@@ -136,20 +136,23 @@
 
   \refcardtitle{Audio Math}
   \begin{tabularx}{9cm}{>{\tt}l X}
+  	expr\~\ fexpr\~\ & C-style expressions \\
     +\~\ -\~\ *\~\ /\~\ & arithmetic on audio signals \\
     max\~\ min\~\ & maximum or minimum of 2 inputs \\
-    clip\~ & constrict signal to lie between two bounds \\
-    q8\_rsqrt\~\ & cheap reciprocal square root (beware 8 bits!) \\
-    q8\_sqrt\~\ & cheap square root (beware 8 bits!) \\
-    wrap\~\ & wraparound (fractional part, sort of) \\
+    clip\~\ & constrict signal to lie between two bounds \\
+    sqrt\~\ & approximate (16-bit) square root \\
+    rsqrt\~\ & reciprocal square root \\
+    q8\_rsqrt\~\ q8\_sqrt\~\ & fast, cheap 8 bits versions \\
+    wrap\~\ & wraparound (fractional part) \\
     fft\~\ & complex forward discrete Fourier transform \\
     ifft\~\ & complex inverse discrete Fourier transform \\
     rfft\~\ & real forward discrete Fourier transform \\
     rifft\~\ & real inverse discrete Fourier transform \\
-    framp\~ & estimate frequency and amplitude of FFT components \\
+    pow\~\ log\~\ exp\~\ abs\~\ & math\\
+    framp\~\ & output a ramp for each block \\
   \end{tabularx}
   \begin{tabularx}{9cm}{>{\tt}X l}
-    mtof\~\ ftom\~\ rmstodb\~\ dbtorms\~\ rmstopow\~\ powtorms\~ & acoustic conversions \\
+    mtof\~\ ftom\~\ rmstodb\~\ dbtorms\~\ & acoustic conversions \\
   \end{tabularx}
 
   \refcardtitle{Audio Glue}
