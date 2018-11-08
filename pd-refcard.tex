@@ -93,14 +93,16 @@
     wrap & wrap a number to a range [0, 1)
   \end{tabularx}
 
-  \refcardtitle{Midi}
+  \refcardtitle{I/O via MIDI, OSC and FUDI}
   \begin{tabularx}{9cm}{>{\tt}X l}
-    notein ctlin pgmin bendin touchin polytouchin midiin sysexin & MIDI input \\
+    notein ctlin pgmin bendin touchin polytouchin midiin sysexin midirealtimein & MIDI input \\
     noteout ctlout pgmout bendout touchout polytouchout midiout & MIDI output \\
   \end{tabularx}
   \begin{tabularx}{9cm}{>{\tt}l X}
-    makenote & send note-on messages and schedule note-off for later \\
+    makenote & schedule delayed "note off" message for a note-on \\
     stripnote & strip note-off messages \\
+    oscparse oscformat & OSC messages to and from Pd lists \\
+    fudiparse fudiformat & FUDI messages to and from Pd lists \\
   \end{tabularx}
 
   \columnbreak
