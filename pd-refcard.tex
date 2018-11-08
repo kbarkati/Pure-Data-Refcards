@@ -1,6 +1,8 @@
 %% pd-refcard.tex : Pure Data Reference Card
 %% 2010/12/13 by Karim Barkati
 %% karim.barkati@gmail.com
+%% 2018/11/08 by Niccolò Granieri
+%% granieriniccolo@gmail.com
 %% Copyright (c) 2010 GFDL 1.3
 
 \documentclass[a4paper, landscape, 10pt]{article}
@@ -34,7 +36,7 @@
 
   \begin{center}
     \Large{\textbf{Pure Data Reference Card}} \\
-    \small{Karim \textsc{Barkati} -- \today} 
+    \small{K. \textsc{Barkati} \& N. \textsc{Granieri} -- \today} 
   \end{center}
 
   \footnotesize
@@ -81,8 +83,8 @@
 
   \refcardtitle{Math}
   \begin{tabularx}{9cm}{>{\tt}X X}
-  	expr & C-style expressions
-    + - * / pow  & arithmetic \\
+  	expr & C-style expressions \\
+  	+ - * / pow  & arithmetic \\
     == != > < >= <= & relational tests \\
     \& \&\& | || \% << >> & bit twiddling \\
     mtof ftom powtodb rmstodb dbtopow dbtorms & convert acoustical units \\
@@ -92,20 +94,20 @@
     clip & force a number into a range \\
     wrap & wrap a number to a range [0, 1)
   \end{tabularx}
-
+  
+  \columnbreak
   \refcardtitle{I/O via MIDI, OSC and FUDI}
-  \begin{tabularx}{9cm}{>{\tt}X l}
+  \begin{tabularx}{9cm}{>{\tt}X X}
     notein ctlin pgmin bendin touchin polytouchin midiin sysexin midirealtimein & MIDI input \\
     noteout ctlout pgmout bendout touchout polytouchout midiout & MIDI output \\
   \end{tabularx}
-  \begin{tabularx}{9cm}{>{\tt}l X}
+  \begin{tabularx}{9cm}{>{\tt}X X}
     makenote & schedule delayed "note off" message for a note-on \\
     stripnote & strip note-off messages \\
     oscparse oscformat & OSC messages to and from Pd lists \\
     fudiparse fudiformat & FUDI messages to and from Pd lists \\
   \end{tabularx}
 
-  \columnbreak
   \refcardtitle{Arrays / Tables}
   \begin{tabularx}{9cm}{>{\tt}l X}
     tabread & read a number from a table \\
@@ -151,7 +153,7 @@
     pow\~\ log\~\ exp\~\ abs\~\ & math\\
     framp\~\ & output a ramp for each block \\
   \end{tabularx}
-  \begin{tabularx}{9cm}{>{\tt}X l}
+  \begin{tabularx}{9cm}{>{\tt}l X}
     mtof\~\ ftom\~\ rmstodb\~\ dbtorms\~\ & acoustic conversions \\
   \end{tabularx}
 
@@ -174,14 +176,7 @@
     readsf\~\ & soundfile playback from disk \\
     writesf\~\ & record sound to disk \\
   \end{tabularx}
-
-  \medskip{} 
-  \noindent{}
-  \begin{tabularx}{9cm}{X}
-    \tiny{Copyright \copyright{ 2010} Karim \textsc{Barkati} <\email{karim.barkati@gmail.com}>. Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.}
-  \end{tabularx}
-
-  \columnbreak
+  
   \refcardtitle{Audio Oscillators and Tables}
   \begin{tabularx}{9cm}{>{\tt}l X}
     phasor\~\ & sawtooth oscillator \\
@@ -195,7 +190,7 @@
     tabsend\~\ & write one block continuously to a table \\
     tabreceive\~\ & read one block continuously from a table \\
   \end{tabularx}
-
+  
   \refcardtitle{Audio Filters}
   \begin{tabularx}{9cm}{>{\tt}l X}
     vcf\~\ & voltage controlled filter \\
@@ -211,7 +206,7 @@
     rzero\~\ & raw real-valued one-zero filter \\
     rzero\_rev\~\ & time-reversed \texttt{rzero\~} \\
   \end{tabularx}
-  \texttt{cpole\~\, czero\~\, czero\_rev} corresponding complex-valued filters
+  \texttt{cpole\~, czero\~, czero\_rev\~} corresponding complex-valued filters
 
   \refcardtitle{Audio Delay}
   \begin{tabularx}{9cm}{>{\tt}l X}
@@ -219,7 +214,7 @@
     delread\~\ & read from a delay line \\
     delread4\~\ vd\~\ & read with a time-varying delay time \\
   \end{tabularx}
-
+  
   \refcardtitle{Subwindows}
   \begin{tabularx}{9cm}{>{\tt}l X}
     pd & define a subwindow \\
@@ -235,10 +230,10 @@
     struct & define a data structure \\
     drawcurve, filledcurve & draw a curve \\
     drawpolygon, filledpolygon & draw a polygon \\
-    drawtext drawsymbol & draw text
+    drawtext drawsymbol & draw text \\
     plot & plot an array field \\
     drawnumber & print a numeric value \\
-  \end{tabularx}
+    \end{tabularx}
 
   \refcardtitle{Accessing Data}
   \begin{tabularx}{9cm}{>{\tt}l X}
@@ -249,7 +244,7 @@
     getsize & get the size of an array \\
     setsize & change the size of an array \\
     append & add an element to a list \\
-    scalar & create a single scalar
+    scalar & create a single scalar \\
   \end{tabularx}
   
   \refcardtitle{Extra (patches and externals in pd/extra)}
@@ -265,6 +260,14 @@
   	bob\~\ & Moog resonant filter model \\
   	
   \end{tabularx}
+  
+  \medskip{} 
+  \noindent{}
+  \begin{tabularx}{9cm}{X}
+    \tiny{Copyright \copyright{ 2010} Karim \textsc{Barkati} <\email{karim.barkati@gmail.com}>. Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.}
+  \end{tabularx}
+
+  \columnbreak
 
 \end{multicols}
 
