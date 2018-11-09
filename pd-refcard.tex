@@ -5,7 +5,7 @@
 %% granieriniccolo@gmail.com
 %% Copyright (c) 2010 GFDL 1.3
 
-\documentclass[a4paper, landscape, 10pt]{article}
+\documentclass[a4paper, landscape, 9pt]{extarticle}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{tabularx}
@@ -15,7 +15,7 @@
 \usepackage{url}
 \urlstyle{sf}
 \thispagestyle{empty}
-\geometry{hmargin=0.8cm, vmargin=0.7cm}
+\geometry{hmargin=0.7cm, vmargin=0.5cm}
 \hypersetup{
   colorlinks = true,
   urlcolor = black
@@ -43,7 +43,7 @@
 
   \refcardtitle{Modes}
   \begin{tabularx}{9.1cm}{X}
-    \texttt{ctl-e} (or \texttt{cmd-e}) toggle between \emph{run} mode (performance) and \emph{edit} mode (programming); this affects how mouse clicks affect the patch.
+    \texttt{ctrl-e} (or \texttt{cmd-e}) toggle between \emph{run} mode (performance) and \emph{edit} mode (programming); this affects how mouse clicks affect the patch.
   \end{tabularx}
 
   \refcardtitle{General}
@@ -95,7 +95,7 @@
     wrap & wrap a number to a range [0, 1)
   \end{tabularx}
   
-  \columnbreak
+  
   \refcardtitle{I/O via MIDI, OSC and FUDI}
   \begin{tabularx}{9cm}{>{\tt}X X}
     notein ctlin pgmin bendin touchin polytouchin midiin sysexin midirealtimein & MIDI input \\
@@ -108,6 +108,7 @@
     fudiparse fudiformat & FUDI messages to and from Pd lists \\
   \end{tabularx}
 
+\columnbreak
   \refcardtitle{Arrays / Tables}
   \begin{tabularx}{9cm}{>{\tt}l X}
     tabread & read a number from a table \\
@@ -264,10 +265,10 @@
   \medskip{} 
   \noindent{}
   \begin{tabularx}{9cm}{X}
-    \tiny{Copyright \copyright{ 2010} Karim \textsc{Barkati} <\email{karim.barkati@gmail.com}>. Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.}
+    \tiny{Copyright \copyright{2018} Karim \textsc{Barkati} <\email{karim.barkati@gmail.com}> \& Niccolò \textsc{Granieri} <\email{granieriniccolo@gmail.com}>. Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.}
   \end{tabularx}
 
-  \columnbreak
+  %\columnbreak
 
 \end{multicols}
 
