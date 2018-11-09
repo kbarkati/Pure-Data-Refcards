@@ -1,0 +1,275 @@
+%% pd-refcard.tex : Pure Data Reference Card
+%% 2010/12/13 by Karim Barkati
+%% karim.barkati@gmail.com
+%% 2018/11/08 by Niccolò Granieri
+%% granieriniccolo@gmail.com
+%% Copyright (c) 2010 GFDL 1.3
+
+\documentclass[a4paper, landscape, 9pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{url}
+\urlstyle{sf}
+\thispagestyle{empty}
+\geometry{hmargin=0.7cm, vmargin=0.5cm}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = black
+}
+
+
+\newcommand{\email}[1]{\href{mailto:#1}{\textsf{#1}}}
+\newcommand{\refcardtitle}[1]{
+  \begin{center}
+    \textbf{\small{#1}}
+  \end{center}
+}
+
+
+\begin{document}
+
+\begin{multicols}{3}
+
+  \begin{center}
+    \Large{\textbf{Pure Data Reference Card}} \\
+    \small{K. \textsc{Barkati} \& N. \textsc{Granieri} -- \today} 
+  \end{center}
+
+  \footnotesize
+
+  \refcardtitle{Modes}
+  \begin{tabularx}{9.1cm}{X}
+    \texttt{ctrl-e} (or \texttt{cmd-e}) toggle between \emph{run} mode (performance) and \emph{edit} mode (programming); this affects how mouse clicks affect the patch.
+  \end{tabularx}
+
+  \refcardtitle{General}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    bang & output a bang message \\
+    float & store and recall a number  \\
+    symbol & store and recall a symbol \\
+    int & store and recall an integer  \\
+    send & send a message to a named object  \\
+    receive & catch "sent" messages  \\
+    select & test for matching numbers or symbols  \\
+    route & route messages according to first element  \\
+    pack & make compound messages  \\
+    unpack & get elements of compound messages  \\
+    trigger & sequence and convert messages  \\
+    spigot & interruptible message connection  \\
+    moses & part a numeric stream  \\
+    until & looping mechanism  \\
+    print & print out messages  \\
+    makefilename & format a symbol with a variable field  \\
+    change & remove repeated numbers from a stream  \\
+    swap & swap two numbers  \\
+    value & shared numeric value \\
+    list & manipulate lists \\
+  \end{tabularx}
+
+  \refcardtitle{Time}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    delay & send a message after a time delay \\
+    metro & send a message periodically \\
+    line & send a series of linearly stepped numbers \\
+    timer & measure time intervals \\
+    cputime & measure CPU time \\
+    realtime & measure real time \\
+    pipe & dynamically growable delay line for messages \\
+  \end{tabularx}
+
+  \refcardtitle{Math}
+  \begin{tabularx}{9cm}{>{\tt}X X}
+  	expr & C-style expressions \\
+  	+ - * / pow  & arithmetic \\
+    == != > < >= <= & relational tests \\
+    \& \&\& | || \% << >> & bit twiddling \\
+    mtof ftom powtodb rmstodb dbtopow dbtorms & convert acoustical units \\
+    mod div sin cos tan atan atan2 sqrt log exp abs & higher math \\
+    random & lower math \\ 
+    max min & greater or lesser of 2 numbers \\
+    clip & force a number into a range \\
+    wrap & wrap a number to a range [0, 1)
+  \end{tabularx}
+  
+  
+  \refcardtitle{I/O via MIDI, OSC, and FUDI}
+  \begin{tabularx}{9cm}{>{\tt}X X}
+    notein ctlin pgmin bendin touchin polytouchin midiin sysexin midirealtimein & MIDI input \\
+    noteout ctlout pgmout bendout touchout polytouchout midiout & MIDI output \\
+  \end{tabularx}
+  \begin{tabularx}{9cm}{>{\tt}X X}
+    makenote & schedule delayed "note off" message for a note-on \\
+    stripnote & strip note-off messages \\
+    oscparse oscformat & OSC messages to and from Pd lists \\
+    fudiparse fudiformat & FUDI messages to and from Pd lists \\
+  \end{tabularx}
+
+\columnbreak
+  \refcardtitle{Arrays / Tables}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    tabread & read a number from a table \\
+    tabread4 & read a number from a table with 4 point interpolation \\
+    tabwrite & write a number to a table \\
+    soundfiler & read and write tables to soundfiles \\
+    table & create a named table \\
+    array & general array creation and manipulation \\
+  \end{tabularx}
+
+  \refcardtitle{Misc}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    loadbang & bang on load \\
+    declare & set search path and/or load libraries \\
+    savestate & mechanism for saving state of an abstraction \\
+    netsend & send messages over the internet \\
+    netreceive & receive them \\
+    qlist & message sequencer \\
+    textfile & file to message converter \\
+    text & general text handling \\
+    openpanel & "Open" dialog \\
+    savepanel & "Save as" dialog \\
+    bag & set of numbers \\
+    poly & polyphonic voice allocation \\
+    key, keyup & numeric key values from keyboard \\
+    keyname & symbolic key name \\
+  \end{tabularx}
+
+  \refcardtitle{Audio Math}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+  	expr\~\ fexpr\~\ & C-style expressions \\
+    +\~\ -\~\ *\~\ /\~\ & arithmetic on audio signals \\
+    max\~\ min\~\ & maximum or minimum of 2 inputs \\
+    clip\~\ & constrict signal to lie between two bounds \\
+    sqrt\~\ & approximate (16-bit) square root \\
+    rsqrt\~\ & reciprocal square root \\
+    q8\_rsqrt\~\ q8\_sqrt\~\ & fast, cheap 8 bits versions \\
+    wrap\~\ & wraparound (fractional part) \\
+    fft\~\ & complex forward discrete Fourier transform \\
+    ifft\~\ & complex inverse discrete Fourier transform \\
+    rfft\~\ & real forward discrete Fourier transform \\
+    rifft\~\ & real inverse discrete Fourier transform \\
+    pow\~\ log\~\ exp\~\ abs\~\ & math\\
+    framp\~\ & output a ramp for each block \\
+  \end{tabularx}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    mtof\~\ ftom\~\ rmstodb\~\ dbtorms\~\ & acoustic conversions \\
+  \end{tabularx}
+
+  \refcardtitle{General Audio Manipulation}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    dac\~\ & audio output \\
+    adc\~\ & audio input \\ 
+    sig\~\ & convert numbers to audio signals \\ 
+    line\~\ & generate audio ramps \\ 
+    vline\~\ & deluxe \texttt{line\~} \\ 
+    threshold\~\ & detect signal thresholds \\
+    snapshot\~\ & sample a signal (convert it back to a number) \\
+    vsnapshot\~\ & deluxe \texttt{snapshot\~} \\
+    bang\~\ & send a bang message after each DSP block \\
+    samplerate\~\ & get the sample rate \\
+    send\~\ & nonlocal signal connection with fanout \\
+    receive\~\ & get signal from \texttt{send\~} \\
+    throw\~\ & add to a summing bus \\
+    catch\~\ & define and read a summing bus \\
+    readsf\~\ & soundfile playback from disk \\
+    writesf\~\ & record sound to disk \\
+  \end{tabularx}
+  
+  \refcardtitle{Audio Oscillators and Tables}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    phasor\~\ & sawtooth oscillator \\
+    cos\~\ & cosine \\
+    osc\~\ & cosine oscillator \\
+    tabwrite\~\ & write to a table \\
+    tabplay\~\ & play back from a table (non-transposing) \\
+    tabread\~\ & non-interpolating table read \\
+    tabread4\~\ & four-point interpolating table read \\
+    tabosc4\~\ & wavetable oscillator \\ 
+    tabsend\~\ & write one block continuously to a table \\
+    tabreceive\~\ & read one block continuously from a table \\
+  \end{tabularx}
+  
+  \refcardtitle{Audio Filters}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    vcf\~\ & voltage controlled filter \\
+    noise\~\ &  white noise generator \\
+    env\~\ & envelope follower (RMS amplitude in dB) \\
+    hip\~\ &  high pass filter \\
+    lop\~\ &  low pass filter \\ 
+    bp\~\ &  band pass filter \\
+    biquad\~\ & raw filter (2 poles and 2 zeros)\\ 
+    samphold\~\ & sample and hold unit \\
+    print\~\ & print out one or more "blocks" \\
+    rpole\~\ & raw real-valued one-pole filter \\
+    rzero\~\ & raw real-valued one-zero filter \\
+    rzero\_rev\~\ & time-reversed \texttt{rzero\~} \\
+  \end{tabularx}
+  \texttt{cpole\~, czero\~, czero\_rev\~} corresponding complex-valued filters
+
+  \refcardtitle{Audio Delay}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    delwrite\~\ & write to a delay line \\
+    delread\~\ & read from a delay line \\
+    delread4\~\ vd\~\ & read with a time-varying delay time \\
+  \end{tabularx}
+  
+  \refcardtitle{Subwindows}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    pd & define a subwindow \\
+    inlet & add an inlet to a pd \\
+    outlet & add an outlet to a pd \\
+    inlet\~\, outlet\~\ & signal versions of \texttt{inlet} and \texttt{outlet} \\
+    clone & make copies of a subpatch \\
+    block\~\ switch & specify block size and overlap, or, if invoked as "switch", also switch subpatches on and off \\
+  \end{tabularx}
+
+  \refcardtitle{Data Templates}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    struct & define a data structure \\
+    drawcurve, filledcurve & draw a curve \\
+    drawpolygon, filledpolygon & draw a polygon \\
+    drawtext drawsymbol & draw text \\
+    plot & plot an array field \\
+    drawnumber & print a numeric value \\
+    \end{tabularx}
+
+  \refcardtitle{Accessing Data}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+    pointer & point to an object belonging to a template \\
+    get & get numeric fields \\
+    set & change numeric fields \\
+    element & get an array element \\
+    getsize & get the size of an array \\
+    setsize & change the size of an array \\
+    append & add an element to a list \\
+    scalar & create a single scalar \\
+  \end{tabularx}
+  
+  \refcardtitle{Extra (patches and externals in pd/extra)}
+  \begin{tabularx}{9cm}{>{\tt}l X}
+  	sigmund\~\ & pitch tracker \\
+  	bonk\~\ & attack detector \\
+  	choice & best match of list to templates \\
+  	hilbert\~\ complex-mod\~\ & phase quadrature / frequency shifting \\
+  	loop\~\ & phasor\~\ with S/H on its frequency input\\
+  	lrshift\~\ & left and right shift (useful with FFT objects) \\
+  	pd\~\ stout & run another copy of Pd (for multiprocessing) \\ 
+  	rev1\~\ rev2\~\ rev3\~\ & reverberators \\
+  	bob\~\ & Moog resonant filter model \\
+  	
+  \end{tabularx}
+  
+  \medskip{} 
+  \noindent{}
+  \begin{tabularx}{9cm}{X}
+    \tiny{Copyright \copyright{2018} Karim \textsc{Barkati} <\email{karim.barkati@gmail.com}> \& Niccolò \textsc{Granieri} <\email{granieriniccolo@gmail.com}>. Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.}
+  \end{tabularx}
+
+  %\columnbreak
+
+\end{multicols}
+
+\end{document}
