@@ -1,0 +1,5 @@
+# Hidden Files
+.DS_Store
+
+# Compiled PDF
+*.pdf
